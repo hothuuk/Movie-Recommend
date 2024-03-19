@@ -16,9 +16,13 @@ spring:
     hibernate:
       ddl-auto: update
 
-  jwt:
-    accessSecret: ${ACCESS_SECRET}
-    refreshSecret: ${REFRESH_SECRET}
-    time:
-      accessTime: ${ACCESS_TIME}
-      refreshTime: ${REFRESH_TIME}
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+
+jwt:
+  accessSecret: ${ACCESS_SECRET}
+  refreshSecret: ${REFRESH_SECRET}
+  time:
+    accessTime: ${ACCESS_TIME}
+    refreshTime: ${REFRESH_TIME}
