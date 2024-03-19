@@ -49,6 +49,9 @@ dependencies {
 
 	// Configuration
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+
+	// Redis
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 }
 
 tasks.withType<KotlinCompile> {
