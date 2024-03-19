@@ -9,7 +9,7 @@ class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    val id: Long,
+    val id: Long = 0,
 
     @Column(name = "user_email", nullable = false, unique = true)
     val email: String,
