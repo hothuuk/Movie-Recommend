@@ -1,7 +1,7 @@
 package com.study.movierecommend.domain.auth.presentation
 
-import com.study.movierecommend.domain.auth.presentation.data.req.SignInReqDto
-import com.study.movierecommend.domain.auth.presentation.data.req.SignUpReqDto
+import com.study.movierecommend.domain.auth.presentation.data.request.SignInReqDto
+import com.study.movierecommend.domain.auth.presentation.data.request.SignUpReqDto
 import com.study.movierecommend.domain.auth.presentation.data.res.RefreshResDto
 import com.study.movierecommend.domain.auth.presentation.data.res.SignInResDto
 import com.study.movierecommend.domain.auth.service.LogoutService

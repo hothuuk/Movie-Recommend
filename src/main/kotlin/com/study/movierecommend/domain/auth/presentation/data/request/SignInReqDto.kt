@@ -1,4 +1,4 @@
-package com.study.movierecommend.domain.auth.presentation.data.req
+package com.study.movierecommend.domain.auth.presentation.data.request
 
 import javax.validation.constraints.NotBlank
 
