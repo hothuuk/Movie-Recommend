@@ -1,9 +1,9 @@
 package com.study.movierecommend.domain.auth.presentation
 
-import com.study.movierecommend.domain.auth.presentation.data.req.SignInReqDto
-import com.study.movierecommend.domain.auth.presentation.data.req.SignUpReqDto
-import com.study.movierecommend.domain.auth.presentation.data.res.RefreshResDto
-import com.study.movierecommend.domain.auth.presentation.data.res.SignInResDto
+import com.study.movierecommend.domain.auth.presentation.data.request.SignInRequest
+import com.study.movierecommend.domain.auth.presentation.data.request.SignUpRequest
+import com.study.movierecommend.domain.auth.presentation.data.response.RefreshResponse
+import com.study.movierecommend.domain.auth.presentation.data.response.SignInResponse
 import com.study.movierecommend.domain.auth.service.LogoutService
 import com.study.movierecommend.domain.auth.service.RefreshTokenService
 import com.study.movierecommend.domain.auth.service.SignInService
@@ -29,18 +29,18 @@ class AuthController(
     private val authConverter: AuthConverter
 ) {
     @PostMapping("/signup")
-    fun signup(@Valid @RequestBody signUpReqDto: SignUpReqDto): ResponseEntity<Void> =
-        authConverter.toDto(signUpReqDto)
+    fun signup(@Valid @RequestBody signUpRequest: SignUpRequest): ResponseEntity<Void> =
+        authConverter.toDto(signUpRequest)
             .let { signUpService.execute(it) }
             .run { ResponseEntity.ok().build() }
 
     @PostMapping("/signIn")
-    fun signIn(@Valid @RequestBody signInReqDto: SignInReqDto): ResponseEntity<SignInResDto> =
-        authConverter.toDto(signInReqDto)
+    fun signIn(@Valid @RequestBody signInRequest: SignInRequest): ResponseEntity<SignInResponse> =
+        authConverter.toDto(signInRequest)
             .let { ResponseEntity.ok(signInService.execute(it)) }
 
     @PatchMapping("/reissue")
-    fun reissue(@RequestHeader("Refresh-Token") refreshToken: String): ResponseEntity<RefreshResDto> =
+    fun reissue(@RequestHeader("Refresh-Token") refreshToken: String): ResponseEntity<RefreshResponse> =
         ResponseEntity.ok().body(refreshTokenService.execute(refreshToken))
 
     @DeleteMapping("/logout")

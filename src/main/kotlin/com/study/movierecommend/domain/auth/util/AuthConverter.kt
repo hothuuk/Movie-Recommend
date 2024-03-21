@@ -2,12 +2,12 @@ package com.study.movierecommend.domain.auth.util
 
 import com.study.movierecommend.domain.auth.presentation.data.dto.SignInDto
 import com.study.movierecommend.domain.auth.presentation.data.dto.SignUpDto
-import com.study.movierecommend.domain.auth.presentation.data.req.SignInReqDto
-import com.study.movierecommend.domain.auth.presentation.data.req.SignUpReqDto
+import com.study.movierecommend.domain.auth.presentation.data.request.SignInRequest
+import com.study.movierecommend.domain.auth.presentation.data.request.SignUpRequest
 
 interface AuthConverter {
 
-    fun toDto(signUpReqDto: SignUpReqDto): SignUpDto
+    fun toDto(signUpRequest: SignUpRequest): SignUpDto
 
-    fun toDto(signInReqDto: SignInReqDto): SignInDto
+    fun toDto(signInRequest: SignInRequest): SignInDto
 }
