@@ -3,7 +3,7 @@ package com.study.movierecommend.domain.auth.presentation
 import com.study.movierecommend.domain.auth.presentation.data.request.SignInRequest
 import com.study.movierecommend.domain.auth.presentation.data.request.SignUpRequest
 import com.study.movierecommend.domain.auth.presentation.data.response.RefreshResponse
-import com.study.movierecommend.domain.auth.presentation.data.response.SignInResDto
+import com.study.movierecommend.domain.auth.presentation.data.response.SignInResponse
 import com.study.movierecommend.domain.auth.service.LogoutService
 import com.study.movierecommend.domain.auth.service.RefreshTokenService
 import com.study.movierecommend.domain.auth.service.SignInService
@@ -35,7 +35,7 @@ class AuthController(
             .run { ResponseEntity.ok().build() }
 
     @PostMapping("/signIn")
-    fun signIn(@Valid @RequestBody signInRequest: SignInRequest): ResponseEntity<SignInResDto> =
+    fun signIn(@Valid @RequestBody signInRequest: SignInRequest): ResponseEntity<SignInResponse> =
         authConverter.toDto(signInRequest)
             .let { ResponseEntity.ok(signInService.execute(it)) }
 
