@@ -5,6 +5,7 @@ import com.study.movierecommend.global.security.handler.CustomAuthenticationEntr
 import com.study.movierecommend.global.security.jwt.JwtExceptionFilter
 import com.study.movierecommend.global.security.jwt.JwtReqFilter
 import org.springframework.context.annotation.Bean
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
@@ -33,6 +34,8 @@ class SecurityConfig(
             .authorizeHttpRequests()
 
             .antMatchers("/auth/**").permitAll()
+
+            .antMatchers(HttpMethod.POST, "/movie").hasRole("ADMIN")
 
             .anyRequest().denyAll()
             .and()
