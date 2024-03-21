@@ -1,6 +1,6 @@
 package com.study.movierecommend.domain.auth.presentation
 
-import com.study.movierecommend.domain.auth.presentation.data.request.SignInReqDto
+import com.study.movierecommend.domain.auth.presentation.data.request.SignInRequest
 import com.study.movierecommend.domain.auth.presentation.data.request.SignUpReqDto
 import com.study.movierecommend.domain.auth.presentation.data.response.RefreshResDto
 import com.study.movierecommend.domain.auth.presentation.data.response.SignInResDto
@@ -35,8 +35,8 @@ class AuthController(
             .run { ResponseEntity.ok().build() }
 
     @PostMapping("/signIn")
-    fun signIn(@Valid @RequestBody signInReqDto: SignInReqDto): ResponseEntity<SignInResDto> =
-        authConverter.toDto(signInReqDto)
+    fun signIn(@Valid @RequestBody signInRequest: SignInRequest): ResponseEntity<SignInResDto> =
+        authConverter.toDto(signInRequest)
             .let { ResponseEntity.ok(signInService.execute(it)) }
 
     @PatchMapping("/reissue")

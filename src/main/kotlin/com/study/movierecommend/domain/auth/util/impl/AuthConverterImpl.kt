@@ -2,7 +2,7 @@ package com.study.movierecommend.domain.auth.util.impl
 
 import com.study.movierecommend.domain.auth.presentation.data.dto.SignInDto
 import com.study.movierecommend.domain.auth.presentation.data.dto.SignUpDto
-import com.study.movierecommend.domain.auth.presentation.data.request.SignInReqDto
+import com.study.movierecommend.domain.auth.presentation.data.request.SignInRequest
 import com.study.movierecommend.domain.auth.presentation.data.request.SignUpReqDto
 import com.study.movierecommend.domain.auth.util.AuthConverter
 import org.springframework.stereotype.Component
@@ -17,9 +17,9 @@ class AuthConverterImpl : AuthConverter {
             name = signUpReqDto.name
         )
 
-    override fun toDto(signInReqDto: SignInReqDto): SignInDto =
+    override fun toDto(signInRequest: SignInRequest): SignInDto =
         SignInDto(
-            email = signInReqDto.email,
-            password = signInReqDto.password
+            email = signInRequest.email,
+            password = signInRequest.password
         )
 }
