@@ -1,4 +1,4 @@
-package com.study.movierecommend.domain.auth.presentation.data.res
+package com.study.movierecommend.domain.auth.presentation.data.response
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.study.movierecommend.domain.user.enums.Role

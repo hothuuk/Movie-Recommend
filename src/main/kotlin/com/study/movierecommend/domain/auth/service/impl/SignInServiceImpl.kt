@@ -3,7 +3,7 @@ package com.study.movierecommend.domain.auth.service.impl
 import com.study.movierecommend.domain.auth.domain.entity.RefreshToken
 import com.study.movierecommend.domain.auth.domain.repository.RefreshTokenRepository
 import com.study.movierecommend.domain.auth.presentation.data.dto.SignInDto
-import com.study.movierecommend.domain.auth.presentation.data.res.SignInResDto
+import com.study.movierecommend.domain.auth.presentation.data.response.SignInResDto
 import com.study.movierecommend.domain.auth.service.SignInService
 import com.study.movierecommend.domain.user.domain.repository.UserRepository
 import com.study.movierecommend.domain.user.enums.Role
