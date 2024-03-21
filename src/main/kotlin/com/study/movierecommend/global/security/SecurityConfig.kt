@@ -36,6 +36,7 @@ class SecurityConfig(
             .antMatchers("/auth/**").permitAll()
 
             .antMatchers(HttpMethod.POST, "/movie").hasRole("ADMIN")
+            .antMatchers(HttpMethod.POST, "/movie/watch/{movie_id}").authenticated()
 
             .anyRequest().denyAll()
             .and()

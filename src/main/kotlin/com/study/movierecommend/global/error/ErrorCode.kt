@@ -22,5 +22,7 @@ enum class ErrorCode(
     PASSWORD_MISMATCH("비밀번호가 맞지 않습니다.", HttpStatus.BAD_REQUEST.value()),
 
     // MOVIE
-    MOVIE_ALREADY("존재하는 영화입니다.", HttpStatus.CONFLICT.value())
+    MOVIE_NOT_FOUND("영화를 찾을 수 없습니다.", HttpStatus.NOT_FOUND.value()),
+    MOVIE_ALREADY("존재하는 영화입니다.", HttpStatus.CONFLICT.value()),
+    MOVIE_ALREADY_WATCHED("이미 시청한 영화입니다.", HttpStatus.CONFLICT.value())
 }
