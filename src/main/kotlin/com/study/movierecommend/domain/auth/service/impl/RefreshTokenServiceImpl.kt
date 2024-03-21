@@ -2,7 +2,7 @@ package com.study.movierecommend.domain.auth.service.impl
 
 import com.study.movierecommend.domain.auth.domain.entity.RefreshToken
 import com.study.movierecommend.domain.auth.domain.repository.RefreshTokenRepository
-import com.study.movierecommend.domain.auth.presentation.data.response.RefreshResDto
+import com.study.movierecommend.domain.auth.presentation.data.response.RefreshResponse
 import com.study.movierecommend.domain.auth.service.RefreshTokenService
 import com.study.movierecommend.domain.user.domain.repository.UserRepository
 import com.study.movierecommend.domain.user.enums.Role
@@ -22,7 +22,7 @@ class RefreshTokenServiceImpl(
     private val tokenProvider: JwtTokenProvider
 ) : RefreshTokenService {
 
-    override fun execute(refreshToken: String): RefreshResDto {
+    override fun execute(refreshToken: String): RefreshResponse {
         val refresh = tokenProvider.parseToken(refreshToken)
             ?: throw TokenInvalidException()
 
@@ -48,7 +48,7 @@ class RefreshTokenServiceImpl(
             )
         )
 
-        return RefreshResDto(
+        return RefreshResponse(
             accessToken = newAccessToken,
             refreshToken = newRefreshToken,
             accessExp = accessExp,

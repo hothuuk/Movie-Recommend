@@ -2,7 +2,7 @@ package com.study.movierecommend.domain.auth.presentation
 
 import com.study.movierecommend.domain.auth.presentation.data.request.SignInRequest
 import com.study.movierecommend.domain.auth.presentation.data.request.SignUpRequest
-import com.study.movierecommend.domain.auth.presentation.data.response.RefreshResDto
+import com.study.movierecommend.domain.auth.presentation.data.response.RefreshResponse
 import com.study.movierecommend.domain.auth.presentation.data.response.SignInResDto
 import com.study.movierecommend.domain.auth.service.LogoutService
 import com.study.movierecommend.domain.auth.service.RefreshTokenService
@@ -40,7 +40,7 @@ class AuthController(
             .let { ResponseEntity.ok(signInService.execute(it)) }
 
     @PatchMapping("/reissue")
-    fun reissue(@RequestHeader("Refresh-Token") refreshToken: String): ResponseEntity<RefreshResDto> =
+    fun reissue(@RequestHeader("Refresh-Token") refreshToken: String): ResponseEntity<RefreshResponse> =
         ResponseEntity.ok().body(refreshTokenService.execute(refreshToken))
 
     @DeleteMapping("/logout")
