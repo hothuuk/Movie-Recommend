@@ -13,4 +13,6 @@ interface UserMovieHistoryRepository : JpaRepository<UserMovieHistory, Long> {
 
     @Query("select umh.movie from UserMovieHistory umh where umh.user = :user")
     fun findMovieByUser(@Param("user") user: User): List<Movie>
+
+    fun findByUserId(userId: Long): List<UserMovieHistory>
 }
