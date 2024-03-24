@@ -1,10 +1,13 @@
 package com.study.movierecommend.domain.movie.presentation
 
 import com.study.movierecommend.domain.movie.presentation.data.request.CreateMovieRequest
+import com.study.movierecommend.domain.movie.presentation.data.response.MovieRecommendListResponse
 import com.study.movierecommend.domain.movie.service.CreateMovieService
+import com.study.movierecommend.domain.movie.service.MovieRecommendService
 import com.study.movierecommend.domain.movie.service.WatchedMovieService
 import com.study.movierecommend.domain.movie.util.MovieConverter
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -17,6 +20,7 @@ import javax.validation.Valid
 class MovieController(
     private val createMovieService: CreateMovieService,
     private val watchedMovieService: WatchedMovieService,
+    private val movieRecommendService: MovieRecommendService,
     private val movieConverter: MovieConverter
 ) {
 
@@ -30,4 +34,9 @@ class MovieController(
     fun watchedMovie(@PathVariable("movie_id") movieId: Long) : ResponseEntity<Void> =
         watchedMovieService.execute(movieId)
             .run { ResponseEntity.ok().build() }
+
+    @GetMapping("/recommend")
+    fun movieRecommend(): ResponseEntity<List<MovieRecommendListResponse>> =
+        movieRecommendService.execute()
+            .let { ResponseEntity.ok().body(it) }
 }
